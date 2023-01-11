@@ -34,7 +34,7 @@
         run_playbook:
           name: ./playbooks/generic-awx-runner.yaml
           rulebook_extra_vars:
-             playbookToRun: Demo
+             playbookToRun: ResizeCatalogue
              param1: 1
              param2: R2D2
              param3: Naboo
@@ -49,7 +49,7 @@
         run_playbook:
           name: ./playbooks/generic-awx-runner.yaml
           rulebook_extra_vars:
-             playbookToRun: CP4WAIOPS
+             playbookToRun: ResizeGeneric
              param1: 1
              param2: R2D2
              param3: Naboo
@@ -59,6 +59,11 @@
       condition: event.payload.uuid != ''
       action:
         run_playbook:
-          name: ./playbooks/catchall.yaml
+          name: ./playbooks/generic-awx-runner.yaml
+          rulebook_extra_vars:
+             playbookToRun: CatchAll
+             param1: 1
+             param2: R2D2
+             param3: Naboo
 
 
